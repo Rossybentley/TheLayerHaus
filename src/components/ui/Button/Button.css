@@ -1,0 +1,38 @@
+.button {
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  padding: 15px 32px;
+
+  border-radius: 999px;
+}
+
+.button--primary {
+  background: var(--gold);
+  color: white;
+}
+
+.button--primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 14px 30px rgba(176, 138, 90, 0.25);
+}
+
+.button--secondary {
+  background: transparent;
+
+  border: 1px solid var(--gold);
+
+  color: var(--gold);
+}
+
+.button--secondary:hover {
+  background: var(--gold);
+
+  color: white;
+}

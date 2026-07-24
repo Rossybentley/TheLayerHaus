@@ -1,0 +1,41 @@
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin-bottom: 64px;
+}
+
+.section-heading--center {
+  align-items: center;
+  text-align: center;
+}
+
+.section-heading--left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.section-heading__eyebrow {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.section-heading__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.section-heading__description {
+  max-width: 650px;
+
+  font-size: 1.1rem;
+  line-height: 1.8;
+
+  color: var(--text-secondary);
+}

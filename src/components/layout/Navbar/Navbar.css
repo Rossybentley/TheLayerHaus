@@ -1,0 +1,65 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(250, 246, 241, 0.9);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__content {
+  height: 90px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 40px;
+}
+
+.navbar__links a {
+  font-size: 1rem;
+  font-weight: 500;
+
+  color: var(--text-primary);
+
+  transition: color 0.3s ease;
+}
+
+.navbar__links a:hover {
+  color: var(--gold);
+}
+
+.navbar__button {
+  padding: 14px 28px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: var(--gold);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.navbar__button:hover {
+  transform: translateY(-2px);
+}
