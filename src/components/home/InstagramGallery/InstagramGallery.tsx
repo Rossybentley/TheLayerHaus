@@ -1,5 +1,9 @@
 import "./InstagramGallery.css";
 const InstagramGallery = () => {
-  return <section>Instagram Gallery Section</section>;
+  return (
+    <section id="gallery" className="gallery">
+      Instagram Gallery Section
+    </section>
+  );
 };
 export default InstagramGallery;

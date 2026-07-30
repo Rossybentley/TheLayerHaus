@@ -1,11 +1,17 @@
 import "./Section.css";
-
+import type { ReactNode } from "react";
 interface SectionProps {
-  children: React.ReactNode;
+  children: ReactNode;
+  id?: string;
   className?: string;
 }
 
-const Section = ({ children, className = "" }: SectionProps) => {
-  return <section className={`section ${className}`}>{children}</section>;
+const Section = ({ children, id, className = "" }: SectionProps) => {
+  return (
+    <section id={id} className={`section ${className}`.trim()}>
+      {children}
+    </section>
+  );
 };
+
 export default Section;

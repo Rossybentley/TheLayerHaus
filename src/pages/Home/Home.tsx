@@ -10,7 +10,7 @@ import Testimonials from "../../components/home/Testimonials/Testimonials";
 import InstagramGallery from "../../components/home/InstagramGallery/InstagramGallery";
 import ConsultationCTA from "../../components/home/ConsultationCTA/ConsultationCTA";
 import Footer from "../../components/layout/Footer/Footer";
-
+import WhyChooseUs from "../../components/home/WhyChoose/WhyChoose";
 const Home = () => {
   return (
     <>
@@ -26,6 +26,8 @@ const Home = () => {
         <About />
 
         <Process />
+
+        <WhyChooseUs />
 
         <Testimonials />
 

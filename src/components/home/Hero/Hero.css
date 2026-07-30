@@ -3,8 +3,36 @@
 
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
+.hero::before {
+  content: "";
 
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 18, 16, 0.75),
+    rgba(20, 18, 16, 0.3),
+    rgba(20, 18, 16, 0.15)
+  );
+
+  z-index: -1;
+}
+.hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero__background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+}
 .hero__wrapper {
   display: grid;
 
@@ -16,11 +44,17 @@
 }
 
 .hero__content {
-  display: flex;
+  max-width: 620px;
 
-  flex-direction: column;
+  padding: 60px;
 
-  gap: 28px;
+  border-radius: 30px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .hero__eyebrow {
@@ -42,7 +76,7 @@
 
   line-height: 0.95;
 
-  color: var(--text-primary);
+  color: white;
 }
 .hero__title span {
   color: var(--gold);
@@ -50,9 +84,9 @@
 .hero__description {
   font-size: 1.15rem;
 
-  line-height: 1.9;
+  line-height: 2.5;
 
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.85);
 
   max-width: 550px;
 }
@@ -103,6 +137,8 @@
 
   .hero__content {
     order: 2;
+    max-width: 100%;
+    padding: 40px;
   }
 
   .hero__image {
@@ -113,14 +149,19 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 0;
+    min-height: 90vh;
   }
 
   .hero__buttons {
     flex-direction: column;
     align-items: stretch;
   }
-
+  .hero__content {
+    padding: 32px;
+  }
+  .hero__title {
+    font-size: clamp(2.8rem, 9vw, 4rem);
+  }
   .hero__image {
     height: 450px;
   }
@@ -134,11 +175,18 @@
   .hero__title {
     font-size: clamp(2.8rem, 10vw, 4rem);
   }
-
+  .hero__content {
+    padding: 24px;
+    border-radius: 20px;
+  }
   .hero__description {
     font-size: 1rem;
+    line-height: 1.7;
   }
-
+  .hero__eyebrow {
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+  }
   .hero__image {
     height: 350px;
   }

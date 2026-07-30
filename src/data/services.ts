@@ -1,34 +1,31 @@
-// import curtainImage from "../assets/images/services/curtains.jpg";
-// import wallpaperImage from "../assets/images/services/wallpaper.jpg";
-// import blindImage from "../assets/images/services/blinds.jpg";
-// import upholsteryImage from "../assets/images/services/upholstery.jpg";
-// import furnitureImage from "../assets/images/services/furniture.jpg";
-// import commercialImage from "../assets/images/services/commercial.jpg";
+import curtainImage from "../assets/images/services/curtains.jpg";
+import wallpaperImage from "../assets/images/services/wallpaper.jpg";
+import blindImage from "../assets/images/services/blinds.jpg";
 
-// export const services = [
-//   {
-//     id: 1,
-//     title: "Luxury Curtains",
-//     description:
-//       "Elegant custom-made curtains tailored to complement your space with timeless sophistication.",
-//     image: curtainImage,
-//   },
+export const services = [
+  {
+    id: 1,
+    title: "Luxury Curtains",
+    description:
+      "Elegant custom-made curtains tailored to complement your space with timeless sophistication.",
+    image: curtainImage,
+  },
 
-//   {
-//     id: 2,
-//     title: "Premium Wallpapers",
-//     description:
-//       "Luxury wallpaper collections designed to create beautiful statement interiors.",
-//     image: wallpaperImage,
-//   },
+  {
+    id: 2,
+    title: "Premium Wallpapers",
+    description:
+      "Luxury wallpaper collections designed to create beautiful statement interiors.",
+    image: wallpaperImage,
+  },
 
-//   {
-//     id: 3,
-//     title: "Luxury Blinds",
-//     description: "Modern blinds combining elegance, privacy and functionality.",
-//     image: blindImage,
-//   },
-
+  {
+    id: 3,
+    title: "Luxury Blinds",
+    description: "Modern blinds combining elegance, privacy and functionality.",
+    image: blindImage,
+  },
+];
 //   {
 //     id: 4,
 //     title: "Upholstery",
