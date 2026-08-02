@@ -226,7 +226,25 @@
 .mobile-menu__links a:hover {
   color: var(--gold);
 }
+.mobile-menu__links .active-link {
+  color: var(--gold);
+}
 
+.mobile-menu__links .active-link::after {
+  content: "";
+
+  display: block;
+
+  width: 50%;
+
+  height: 2px;
+
+  margin: 8px auto 0;
+
+  background: var(--gold);
+
+  border-radius: 999px;
+}
 .mobile-menu__button {
   margin-top: 50px;
 
@@ -370,7 +388,7 @@
   }
 
   .mobile-menu__links a {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .mobile-menu__button {
