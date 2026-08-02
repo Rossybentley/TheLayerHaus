@@ -37,12 +37,12 @@ const Hero = () => {
           </p>
 
           <div className="hero__buttons">
-            <Link to="/contact">
-              <Button>Book Consultation</Button>
+            <Link to="/contact" className="button button--primary">
+              Book Consultation
             </Link>
 
-            <Link to="/projects">
-              <Button variant="secondary">View Projects</Button>
+            <Link to="/projects" className="button button--secondary">
+              View Projects
             </Link>
           </div>
         </motion.div>
