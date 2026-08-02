@@ -331,6 +331,11 @@
     display: none;
   }
 
+  /* Hide the duplicate CTA on tablet and smaller (menu already contains it) */
+  .navbar__button {
+    display: none;
+  }
+
   .navbar__toggle {
     display: flex;
     position: relative;
