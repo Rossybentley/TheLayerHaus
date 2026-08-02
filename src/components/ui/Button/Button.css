@@ -3,13 +3,19 @@
   cursor: pointer;
 
   transition: all 0.35s ease;
-
+  gap: 12px;
   font-size: 1rem;
   font-weight: 600;
 
   padding: 15px 32px;
 
   border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .button--primary {
