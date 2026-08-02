@@ -6,6 +6,7 @@ import { fadeLeft } from "../../../utils/animation";
 import Container from "../../layout/Container/Container";
 import Section from "../../layout/Section/Section";
 import Button from "../../ui/Button/Button";
+import { Link } from "react-router-dom";
 import heroImage from "../../../assets/images/hero/hero-main.jpg";
 
 const Hero = () => {
@@ -36,9 +37,13 @@ const Hero = () => {
           </p>
 
           <div className="hero__buttons">
-            <Button>Book Consultation</Button>
+            <Link to="/contact">
+              <Button>Book Consultation</Button>
+            </Link>
 
-            <Button variant="secondary">View Projects</Button>
+            <Link to="/projects">
+              <Button variant="secondary">View Projects</Button>
+            </Link>
           </div>
         </motion.div>
       </Container>
