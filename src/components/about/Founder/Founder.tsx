@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Container from "../../layout/Container/Container";
 import Section from "../../layout/Section/Section";
 
-import founderImage from "../../../assets/images/Founder/Founder.jpg";
+import founderImage from "../../../assets/images/founder/founder.jpg";
 
 const Founder = () => {
   return (
