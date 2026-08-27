@@ -70,7 +70,7 @@
   line-height: 1.8;
 }
 
-.service-card button {
+.service-card__link {
   display: flex;
 
   align-items: center;
@@ -89,10 +89,12 @@
 
   cursor: pointer;
 
+  text-decoration: none;
+
   transition: gap 0.3s ease;
 }
 
-.service-card:hover button {
+.service-card:hover .service-card__link {
   gap: 18px;
 }
 /* Large Tablets */

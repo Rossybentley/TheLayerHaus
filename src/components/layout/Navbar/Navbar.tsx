@@ -1,5 +1,6 @@
 import "./Navbar.css";
-
+import { NavLink, Link } from "react-router-dom";
+import { navigation } from "../../../data/navigation";
 import {
   menuContainer,
   menuItem,
@@ -7,7 +8,7 @@ import {
 } from "../../../utils/navbarAnimation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+
 import {
   FiArrowUpRight,
   FiMenu,
@@ -58,45 +59,40 @@ const Navbar = () => {
           {/* Desktop Navigation */}
 
           <ul className="navbar__links">
-            <li>
-              <a href="#home">Home</a>
-            </li>
-
-            <li>
-              <a href="#about">About</a>
-            </li>
-
-            <li>
-              <a href="#services">Services</a>
-            </li>
-
-            <li>
-              <a href="#projects">Projects</a>
-            </li>
-
-            <li>
-              <a href="#gallery">Gallery</a>
-            </li>
-
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
+            {navigation.map((item) => (
+              <li key={item.path}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
-
           {/* Desktop CTA */}
 
-          <a href="#contact" className="navbar__button">
+          <Link to="/contact" className="navbar__button desktop-btn">
             Book Consultation
             <FiArrowUpRight className="navbar__button-icon" />
-          </a>
+          </Link>
 
           {/* Mobile Toggle */}
 
           <button
             className="navbar__toggle"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={menuOpen}
           >
-            {menuOpen ? <FiX /> : <FiMenu />}
+            <motion.div
+              animate={{ rotate: menuOpen ? 180 : 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              {menuOpen ? <FiX /> : <FiMenu />}
+            </motion.div>
           </button>
         </nav>
       </Container>
@@ -124,36 +120,35 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
             >
-              {[
-                ["Home", "#home"],
-                ["About", "#about"],
-                ["Services", "#services"],
-                ["Projects", "#projects"],
-                ["Gallery", "#gallery"],
-                ["Contact", "#contact"],
-              ].map(([label, href]) => (
-                <motion.li key={label} variants={menuItem}>
-                  <a href={href} onClick={closeMenu}>
-                    {label}
-                  </a>
+              {navigation.map((item) => (
+                <motion.li key={item.path} variants={menuItem}>
+                  <NavLink
+                    to={item.path}
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      isActive ? "active-link" : ""
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
                 </motion.li>
               ))}
             </motion.ul>
 
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="mobile-menu__button"
               onClick={closeMenu}
             >
               Book Your Consultation
               <FiArrowUpRight />
-            </a>
+            </Link>
 
             <div className="mobile-menu__socials">
               <a
                 href="https://www.instagram.com/layerhaus.ng?igsh=MWMxNmdlMjhycjc5Zw=="
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
               >
                 <FiInstagram />
@@ -166,7 +161,7 @@ const Navbar = () => {
               <a
                 href="https://www.tiktok.com/@layerhaus.ng?_r=1&_t=ZS-98RGhWkwJOf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="TikTok"
               >
                 <SiTiktok />
@@ -174,7 +169,7 @@ const Navbar = () => {
               <a
                 href="https://wa.me/2347010353293"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="WhatsApp"
               >
                 <FiMessageCircle />

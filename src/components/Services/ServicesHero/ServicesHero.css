@@ -1,0 +1,169 @@
+.services-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 750px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.services-hero__image {
+  position: absolute;
+  inset: 0;
+}
+
+.services-hero__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1.05);
+}
+
+.services-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(18, 18, 18, 0.82) 0%,
+    rgba(18, 18, 18, 0.55) 45%,
+    rgba(18, 18, 18, 0.35) 100%
+  );
+}
+
+.services-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.services-hero__content {
+  max-width: 680px;
+
+  color: #fff;
+}
+
+.services-hero__content .section-tag {
+  display: inline-block;
+
+  margin-bottom: 1.25rem;
+
+  color: var(--gold);
+
+  letter-spacing: 0.25rem;
+
+  text-transform: uppercase;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+}
+
+.services-hero__content h1 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(4rem, 7vw, 6.5rem);
+
+  line-height: 1.05;
+
+  margin-bottom: 1.75rem;
+
+  color: #fff;
+}
+
+.services-hero__content p {
+  max-width: 580px;
+
+  font-size: 1.15rem;
+
+  line-height: 2;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.services-hero__content::after {
+  content: "";
+
+  display: block;
+
+  width: 110px;
+  height: 3px;
+
+  margin-top: 2rem;
+
+  border-radius: 999px;
+
+  background: var(--gold);
+}
+
+.services-hero::before {
+  content: "";
+
+  position: absolute;
+
+  bottom: -220px;
+  right: -220px;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(rgba(193, 154, 107, 0.15), transparent 70%);
+
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .services-hero {
+    min-height: 680px;
+    height: 85vh;
+  }
+
+  .services-hero__content h1 {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    height: 75vh;
+    min-height: 600px;
+  }
+
+  .services-hero__content {
+    text-align: center;
+
+    margin: 0 auto;
+  }
+
+  .services-hero__content p {
+    margin: 0 auto;
+  }
+
+  .services-hero__content::after {
+    margin: 2rem auto 0;
+  }
+
+  .services-hero__content h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-hero {
+    min-height: 540px;
+  }
+
+  .services-hero__content h1 {
+    font-size: 2.8rem;
+  }
+
+  .services-hero__content p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}

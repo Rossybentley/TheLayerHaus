@@ -27,6 +27,7 @@ const FeaturedProjects = () => {
           {projects.map((project) => (
             <ProjectCard
               key={project.id}
+              slug={project.slug}
               image={project.image}
               title={project.title}
               category={project.category}

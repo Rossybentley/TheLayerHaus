@@ -1,0 +1,163 @@
+.instagram-cta {
+  padding: 8rem 0;
+
+  background: var(--background);
+}
+
+.instagram-cta__content {
+  position: relative;
+
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 6rem 3rem;
+
+  text-align: center;
+
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  overflow: hidden;
+}
+
+/* Decorative gold line */
+
+.instagram-cta__content::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 80px;
+  height: 3px;
+
+  background: var(--gold);
+
+  transform: translateX(-50%);
+}
+
+/* Instagram icon */
+
+.instagram-cta__icon {
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto 2rem;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  color: var(--gold);
+
+  font-size: 1.5rem;
+}
+
+.instagram-cta__content > span {
+  display: block;
+
+  margin-bottom: 1rem;
+
+  color: var(--gold);
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18rem;
+}
+
+.instagram-cta__content h2 {
+  margin: 0 0 1.5rem;
+
+  color: var(--text-primary);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+}
+
+.instagram-cta__content p {
+  max-width: 600px;
+
+  margin: 0 auto 2.5rem;
+
+  color: var(--text-secondary);
+
+  line-height: 1.9;
+}
+
+/* Button */
+
+.instagram-cta__button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding: 1rem 1.6rem;
+
+  background: var(--gold);
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.instagram-cta__button svg {
+  font-size: 1.1rem;
+
+  transition: transform 0.3s ease;
+}
+
+.instagram-cta__button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.instagram-cta__button:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .instagram-cta {
+    padding: 5rem 0;
+  }
+
+  .instagram-cta__content {
+    padding: 4rem 1.5rem;
+  }
+
+  .instagram-cta__content h2 {
+    font-size: 3rem;
+  }
+
+  .instagram-cta__content p {
+    font-size: 0.95rem;
+  }
+}

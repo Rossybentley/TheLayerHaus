@@ -1,0 +1,231 @@
+.gallery-page-grid {
+  padding: 8rem 0;
+  background: var(--background);
+}
+
+/* ================================
+   FILTERS
+================================ */
+
+.gallery-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  margin-bottom: 4rem;
+}
+
+.gallery-filters button {
+  padding: 0.85rem 1.6rem;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+  font-size: 0.9rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.gallery-filters button:hover {
+  border-color: var(--gold);
+
+  color: var(--gold);
+
+  transform: translateY(-2px);
+}
+
+.gallery-filters button.active {
+  background: var(--gold);
+
+  border-color: var(--gold);
+
+  color: white;
+}
+
+/* ================================
+   GALLERY (true masonry via columns)
+================================ */
+
+.gallery-masonry {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  width: 100%;
+  max-width: 100%;
+}
+/* .gallery-masonry {
+  display: flow-root;
+  columns: 3;
+  column-gap: 24px;
+} */
+/* ================================
+   GALLERY CARD
+================================ */
+
+.gallery-page-grid .gallery-card {
+  position: relative;
+
+  display: block;
+  width: 100%;
+
+  min-width: 0;
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  cursor: pointer;
+
+  background: #eee;
+}
+
+.gallery-page-grid .gallery-card img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.gallery-page-grid .gallery-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ================================
+   OVERLAY
+================================ */
+
+.gallery-page-grid .gallery-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 2rem;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78),
+    rgba(0, 0, 0, 0.2) 45%,
+    transparent
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+}
+
+.gallery-page-grid .gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-page-grid .gallery-overlay span {
+  margin-bottom: 0.5rem;
+
+  color: var(--gold);
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.15rem;
+
+  text-transform: uppercase;
+}
+
+.gallery-page-grid .gallery-overlay h3 {
+  margin: 0;
+
+  color: white;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 2rem;
+
+  font-weight: 500;
+
+  line-height: 1.1;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+  .gallery-masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+  .gallery-page-grid {
+    padding: 5rem 0;
+  }
+
+  .gallery-filters {
+    justify-content: flex-start;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    padding-bottom: 0.5rem;
+
+    margin-bottom: 2.5rem;
+  }
+
+  .gallery-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-filters button {
+    flex-shrink: 0;
+
+    padding: 0.75rem 1.3rem;
+  }
+
+  .gallery-masonry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gallery-page-grid .gallery-card {
+    margin-bottom: 0;
+  }
+
+  .gallery-page-grid .gallery-overlay {
+    opacity: 1;
+
+    padding: 1.5rem;
+
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 55%);
+  }
+
+  .gallery-page-grid .gallery-overlay h3 {
+    font-size: 1.7rem;
+  }
+}

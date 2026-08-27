@@ -6,7 +6,7 @@ import { FiCheck } from "react-icons/fi";
 import Container from "../../layout/Container/Container";
 import Section from "../../layout/Section/Section";
 
-import aboutImage from "../../../assets/images/about/about-hero.jpeg";
+import aboutImage from "../../../assets/images/about/about-hero.jpg";
 
 import { stats, features } from "../../../data/about";
 

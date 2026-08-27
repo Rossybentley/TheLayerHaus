@@ -1,13 +1,15 @@
 import "./ProjectCard.css";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
+  slug: string;
   title: string;
   category: string;
   image: string;
 }
 
-const ProjectCard = ({ title, category, image }: ProjectCardProps) => {
+const ProjectCard = ({ slug, title, category, image }: ProjectCardProps) => {
   return (
     <motion.article
       className="project-card"
@@ -22,10 +24,10 @@ const ProjectCard = ({ title, category, image }: ProjectCardProps) => {
 
           <h3>{title}</h3>
 
-          <a href="/" className="project-link">
+          <Link to={`/projects#${slug}`} className="project-link">
             Explore Project
             <span className="arrow">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </motion.article>

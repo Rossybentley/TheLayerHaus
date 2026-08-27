@@ -1,0 +1,169 @@
+.portfolio {
+  padding: 8rem 0;
+  background: var(--background);
+}
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin: 4rem 0 5rem;
+}
+
+.portfolio-filters button {
+  padding: 0.9rem 1.8rem;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  background: white;
+
+  cursor: pointer;
+
+  font-size: 0.95rem;
+
+  transition: 0.35s ease;
+}
+
+.portfolio-filters button:hover {
+  border-color: var(--gold);
+
+  color: var(--gold);
+}
+
+.portfolio-filters .active {
+  background: var(--gold);
+
+  color: white;
+
+  border-color: var(--gold);
+}
+
+.portfolio-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+  gap: 2rem;
+}
+
+.portfolio-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  cursor: pointer;
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 500px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.7s ease;
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.08);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 2rem;
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.15));
+
+  opacity: 0;
+
+  transition: 0.35s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay span {
+  color: var(--gold);
+
+  font-size: 0.9rem;
+
+  margin-bottom: 0.8rem;
+}
+
+.portfolio-overlay h3 {
+  color: white;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 2rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-overlay button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.6rem;
+
+  width: fit-content;
+
+  padding: 0.9rem 1.6rem;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: white;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.portfolio-overlay button:hover {
+  background: var(--gold);
+
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 6rem 0;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card img {
+    height: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .portfolio-filters::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -17,8 +17,8 @@ const Services = () => {
         />
 
         <div className="services__grid">
-          {services.map(({ id, ...service }) => (
-            <ServiceCard key={id} {...service} />
+          {services.map((service) => (
+            <ServiceCard key={service.id} {...service} />
           ))}
         </div>
       </Container>

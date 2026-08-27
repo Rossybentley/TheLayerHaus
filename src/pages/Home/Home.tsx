@@ -1,6 +1,5 @@
-import "./Home.css";
+import Layout from "../../components/layout/Layout/Layout";
 
-import Navbar from "../../components/layout/Navbar/Navbar";
 import Hero from "../../components/home/Hero/Hero";
 import Services from "../../components/home/Services/Services";
 import FeaturedProjects from "../../components/home/FeaturedProjects/FeaturedProjects";
@@ -9,35 +8,34 @@ import Process from "../../components/home/Process/Process";
 import Testimonials from "../../components/home/Testimonials/Testimonials";
 import InstagramGallery from "../../components/home/InstagramGallery/InstagramGallery";
 import ConsultationCTA from "../../components/home/ConsultationCTA/ConsultationCTA";
-import Footer from "../../components/layout/Footer/Footer";
 import WhyChooseUs from "../../components/home/WhyChoose/WhyChoose";
+import SEO from "../../components/common/SEO/SEO";
 const Home = () => {
   return (
-    <>
-      <Navbar />
+    <Layout>
+      <SEO
+        title="Luxury Curtains & Interior Decor in Lagos"
+        description="The Layer Haus creates bespoke curtains, premium blinds, wallpapers and elegant interior styling solutions for residential and commercial spaces in Lagos."
+        path="/"
+      />
+      <Hero />
 
-      <main>
-        <Hero />
+      <Services />
 
-        <Services />
+      <FeaturedProjects />
 
-        <FeaturedProjects />
+      <About />
 
-        <About />
+      <Process />
 
-        <Process />
+      <WhyChooseUs />
 
-        <WhyChooseUs />
+      <Testimonials />
 
-        <Testimonials />
+      <InstagramGallery />
 
-        <InstagramGallery />
-
-        <ConsultationCTA />
-      </main>
-
-      <Footer />
-    </>
+      <ConsultationCTA />
+    </Layout>
   );
 };
 

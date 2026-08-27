@@ -6,111 +6,202 @@
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
+
   z-index: 1000;
 
   background: rgba(250, 246, 241, 0.78);
+
   -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
 
   border-bottom: 1px solid rgba(176, 138, 90, 0.12);
 
-  transition: all 0.35s ease;
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .navbar--scrolled {
   background: rgba(250, 246, 241, 0.96);
+
+  border-bottom-color: rgba(176, 138, 90, 0.18);
+
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
+
+/* ===========================================
+   NAVBAR CONTENT
+=========================================== */
 
 .navbar__content {
   height: 92px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
+  gap: 2rem;
 }
 
+/* ===========================================
+   LOGO
+=========================================== */
+
 .navbar__logo {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.9rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: all 0.35s ease;
+  display: inline-block;
+
+  flex-shrink: 0;
+
   color: var(--text-primary);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.9rem;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  line-height: 1;
+
   text-decoration: none;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
 }
+
 .navbar__logo:hover {
   color: var(--gold);
+
   transform: scale(1.02);
 }
+
+/* ===========================================
+   DESKTOP NAVIGATION
+=========================================== */
+
 .navbar__links {
   display: flex;
+
   align-items: center;
+
   gap: 42px;
+
+  margin: 0;
+
+  padding: 0;
 
   list-style: none;
 }
 
-.navbar__links a {
+.navbar__links li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
   position: relative;
 
+  display: inline-block;
+
+  padding: 0.5rem 0;
+
   color: var(--text-primary);
-  text-decoration: none;
+
+  font-size: 0.9rem;
+
   font-weight: 500;
+
+  line-height: 1;
+
+  text-decoration: none;
 
   transition: color 0.35s ease;
 }
 
-.navbar__links a::after {
+.nav-link::after {
   content: "";
 
   position: absolute;
+
   left: 0;
-  bottom: -8px;
+
+  bottom: -6px;
 
   width: 0;
+
   height: 2px;
+
+  border-radius: 999px;
 
   background: var(--gold);
 
   transition: width 0.35s ease;
 }
 
-.navbar__links a:hover {
+.nav-link:hover {
   color: var(--gold);
 }
 
-.navbar__links a:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
+.nav-link.active {
+  color: var(--gold);
+}
+
 /* ===========================================
-   BUTTON
+   DESKTOP CTA
 =========================================== */
 
 .navbar__button {
   display: inline-flex;
+
   align-items: center;
+
+  justify-content: center;
+
   gap: 12px;
+
+  flex-shrink: 0;
 
   padding: 14px 28px;
 
-  border: none;
+  border: 1px solid var(--gold);
+
   border-radius: 999px;
 
   background: var(--gold);
 
   color: var(--white);
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
   text-decoration: none;
 
   cursor: pointer;
 
-  transition: all 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
 }
 
 .navbar__button:hover {
   transform: translateY(-3px);
+
   box-shadow: 0 12px 25px rgba(176, 138, 90, 0.25);
 }
 
@@ -123,35 +214,53 @@
 }
 
 /* ===========================================
-   MOBILE BUTTON
+   MOBILE TOGGLE
 =========================================== */
 
 .navbar__toggle {
   display: none;
 
+  align-items: center;
+  justify-content: center;
+
   width: 48px;
   height: 48px;
 
-  border: none;
+  padding: 0;
+
+  border: 1px solid var(--border);
+
   border-radius: 50%;
 
   background: var(--surface);
 
   color: var(--text-primary);
 
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 
   cursor: pointer;
 
-  align-items: center;
-  justify-content: center;
-
-  transition: 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .navbar__toggle:hover {
   background: var(--gold);
-  color: white;
+
+  border-color: var(--gold);
+
+  color: var(--white);
+
+  transform: translateY(-2px);
+}
+
+.navbar__toggle:focus-visible {
+  outline: 2px solid var(--gold);
+
+  outline-offset: 4px;
 }
 
 /* ===========================================
@@ -161,110 +270,48 @@
 .mobile-menu {
   position: fixed;
 
-  top: 90px;
+  top: 92px;
+
   left: 0;
   right: 0;
 
-  height: calc(100vh - 90px);
+  height: calc(100vh - 92px);
+
+  z-index: 999;
 
   display: flex;
+
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
 
-  background: rgba(250, 246, 241, 0.82);
+  justify-content: center;
+
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  padding: 3rem 1.5rem;
+
+  background: rgba(250, 246, 241, 0.94);
 
   -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
-
-  z-index: 9999;
-  overscroll-behavior: contain;
-  overflow-y: auto;
-}
-.mobile-menu__line {
-  width: 140px;
-  height: 2px;
-
-  background: var(--gold);
-  margin-bottom: 60px;
-  border-radius: 999px;
-}
-.mobile-menu__links {
-  list-style: none;
-  text-align: center;
 }
 
-.mobile-menu__links li {
-  margin: 28px 0;
-}
+/* ===========================================
+   MOBILE GLOW
+=========================================== */
 
-.mobile-menu__links a {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2rem, 6vw, 3.4rem);
-  position: relative;
-  color: var(--text-primary);
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 1px;
-  transition: color 0.35s ease;
-}
-.mobile-menu__links a::after {
-  content: "";
-
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  width: 0;
-  height: 2px;
-  background: var(--gold);
-  transform: translateX(-50%);
-  transition: width 0.35s ease;
-}
-.mobile-menu__links a:hover::after {
-  width: 100%;
-}
-.mobile-menu__links a:hover {
-  color: var(--gold);
-}
-.mobile-menu__links .active-link {
-  color: var(--gold);
-}
-
-.mobile-menu__links .active-link::after {
-  content: "";
-
-  display: block;
-
-  width: 50%;
-
-  height: 2px;
-
-  margin: 8px auto 0;
-
-  background: var(--gold);
-
-  border-radius: 999px;
-}
-.mobile-menu__button {
-  margin-top: 50px;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 16px 34px;
-
-  border-radius: 999px;
-
-  background: var(--gold);
-
-  color: white;
-  text-decoration: none;
-}
 .mobile-menu__glow {
   position: absolute;
+
+  top: -150px;
+  right: -150px;
+
   width: 500px;
   height: 500px;
+
   background: radial-gradient(
     circle,
     rgba(176, 138, 90, 0.18) 0%,
@@ -272,42 +319,238 @@
   );
 
   filter: blur(80px);
-  top: -120px;
-  right: -120px;
 
   pointer-events: none;
 }
-.mobile-menu__socials {
-  display: flex;
-  gap: 24px;
 
-  margin-top: 60px;
+/* ===========================================
+   MOBILE GOLD LINE
+=========================================== */
+
+.mobile-menu__line {
+  width: 140px;
+
+  height: 2px;
+
+  margin-bottom: 3.5rem;
+
+  border-radius: 999px;
+
+  background: var(--gold);
 }
 
-.mobile-menu__socials a {
-  width: 52px;
-  height: 52px;
+/* ===========================================
+   MOBILE LINKS
+=========================================== */
+
+.mobile-menu__links {
+  position: relative;
+
+  z-index: 1;
 
   display: flex;
-  justify-content: center;
+
+  flex-direction: column;
+
   align-items: center;
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
+  gap: 1.8rem;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+  text-align: center;
+}
+
+.mobile-menu__links li {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu__links a {
+  position: relative;
+
+  display: inline-block;
+
+  color: var(--text-primary);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(2rem, 6vw, 3.4rem);
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mobile-menu__links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -10px;
+
+  width: 0;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: var(--gold);
+
+  transform: translateX(-50%);
+
+  transition: width 0.35s ease;
+}
+
+.mobile-menu__links a:hover {
+  color: var(--gold);
+
+  transform: translateY(-2px);
+}
+
+.mobile-menu__links a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu__links .active-link {
+  color: var(--gold);
+}
+
+.mobile-menu__links .active-link::after {
+  width: 50%;
+}
+
+/* ===========================================
+   MOBILE CTA
+=========================================== */
+
+.mobile-menu__button {
+  position: relative;
+
+  z-index: 1;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 3rem;
+
+  padding: 16px 34px;
+
+  border: 1px solid var(--gold);
+
+  border-radius: 999px;
+
+  background: var(--gold);
 
   color: var(--white);
 
-  font-size: 1.3rem;
+  font-size: 0.85rem;
 
-  transition: all 0.3s ease;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.mobile-menu__button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(176, 138, 90, 0.25);
+}
+
+.mobile-menu__button svg {
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu__button:hover svg {
+  transform: translate(4px, -4px);
+}
+
+/* ===========================================
+   MOBILE SOCIALS
+=========================================== */
+
+.mobile-menu__socials {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 3rem;
+}
+
+.mobile-menu__socials a {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  color: var(--text-primary);
+
+  font-size: 1.15rem;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .mobile-menu__socials a:hover {
   background: var(--gold);
+
   border-color: var(--gold);
+
+  color: var(--white);
 
   transform: translateY(-4px);
 }
+
+.mobile-menu__socials a:focus-visible {
+  outline: 2px solid var(--gold);
+
+  outline-offset: 4px;
+}
+
 /* ===========================================
    DESKTOP
 =========================================== */
@@ -327,27 +570,30 @@
 =========================================== */
 
 @media (max-width: 992px) {
-  .desktop-btn {
-    display: none;
-  }
-
-  /* Hide the duplicate CTA on tablet and smaller (menu already contains it) */
-  .navbar__button {
-    display: none;
-  }
-
-  .navbar__toggle {
-    display: flex;
-    position: relative;
-    z-index: 10000;
+  .navbar__content {
+    height: 85px;
   }
 
   .navbar__links {
     display: none;
   }
 
-  .navbar__content {
-    height: 85px;
+  .desktop-btn {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: flex;
+
+    position: relative;
+
+    z-index: 1001;
+  }
+
+  .mobile-menu {
+    top: 85px;
+
+    height: calc(100vh - 85px);
   }
 }
 
@@ -356,17 +602,21 @@
 =========================================== */
 
 @media (max-width: 768px) {
-  .navbar {
-    padding-inline: 4px;
+  .navbar__content {
+    height: 85px;
   }
 
   .navbar__logo {
     font-size: 1.6rem;
   }
 
+  .navbar__toggle {
+    width: 46px;
+    height: 46px;
+  }
+
   .mobile-menu {
-    top: 85px;
-    height: calc(100vh - 85px);
+    padding-inline: 1.25rem;
   }
 
   .mobile-menu__links a {
@@ -379,6 +629,10 @@
 =========================================== */
 
 @media (max-width: 480px) {
+  .navbar {
+    padding-inline: 4px;
+  }
+
   .navbar__content {
     height: 80px;
   }
@@ -387,17 +641,83 @@
     font-size: 1.35rem;
   }
 
+  .navbar__toggle {
+    width: 44px;
+    height: 44px;
+  }
+
   .mobile-menu {
     top: 80px;
+
     height: calc(100vh - 80px);
+
+    justify-content: flex-start;
+
+    padding-top: 3rem;
+
+    padding-bottom: 2rem;
+  }
+
+  .mobile-menu__line {
+    margin-bottom: 2.5rem;
+  }
+
+  .mobile-menu__links {
+    gap: 1.5rem;
   }
 
   .mobile-menu__links a {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .mobile-menu__button {
-    width: 90%;
-    justify-content: center;
+    width: min(90%, 320px);
+
+    margin-top: 2.5rem;
+  }
+
+  .mobile-menu__socials {
+    gap: 12px;
+
+    margin-top: 2.5rem;
+  }
+
+  .mobile-menu__socials a {
+    width: 44px;
+    height: 44px;
+
+    font-size: 1rem;
+  }
+}
+
+/* ===========================================
+   VERY SMALL PHONES
+=========================================== */
+
+@media (max-width: 360px) {
+  .navbar__logo {
+    font-size: 1.2rem;
+  }
+
+  .mobile-menu {
+    padding-top: 2rem;
+  }
+
+  .mobile-menu__links {
+    gap: 1.2rem;
+  }
+
+  .mobile-menu__links a {
+    font-size: 1.55rem;
+  }
+
+  .mobile-menu__button {
+    margin-top: 2rem;
+
+    padding: 14px 24px;
+  }
+
+  .mobile-menu__socials {
+    margin-top: 2rem;
   }
 }

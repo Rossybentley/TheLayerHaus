@@ -1,0 +1,134 @@
+.location {
+  padding: 7rem 0;
+  background: var(--background);
+}
+.location__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.location__header span {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18rem;
+}
+.location__header h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+}
+.location__header p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.location__map {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.location__map iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  filter: grayscale(100%);
+}
+.location__overlay {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+.location__pin {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  color: white;
+}
+.location__overlay span {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12rem;
+}
+.location__overlay h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.location__overlay a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.location__overlay a svg {
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+.location__overlay a:hover svg {
+  transform: translate(3px, -3px);
+}
+/* ================================ TABLET ================================ */
+@media (max-width: 800px) {
+  .location__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .location__map {
+    height: 450px;
+  }
+}
+/* ================================ MOBILE ================================ */
+@media (max-width: 600px) {
+  .location {
+    padding: 5rem 0;
+  }
+  .location__map {
+    height: 400px;
+  }
+  .location__overlay {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 1rem;
+  }
+  .location__overlay a {
+    margin-left: auto;
+  }
+  .location__overlay a span {
+    display: none;
+  }
+}

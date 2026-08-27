@@ -2,11 +2,10 @@ import "./ServiceCard.css";
 
 import { motion } from "framer-motion";
 
-import { FaArrowRight } from "react-icons/fa";
-
 import { cardHover } from "../../../utils/animation";
 
 interface ServiceCardProps {
+  id: number;
   title: string;
   description: string;
   image: string;
@@ -34,11 +33,6 @@ const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
         <h3>{title}</h3>
 
         <p>{description}</p>
-
-        <button>
-          Learn More
-          <FaArrowRight />
-        </button>
       </div>
     </motion.article>
   );

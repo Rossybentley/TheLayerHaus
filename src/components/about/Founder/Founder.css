@@ -1,0 +1,186 @@
+.founder {
+  position: relative;
+  padding: 8rem 0;
+  background: var(--background);
+  overflow: hidden;
+}
+
+.founder::before {
+  content: "";
+
+  position: absolute;
+  bottom: -180px;
+  right: -180px;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(rgba(193, 154, 107, 0.08), transparent 70%);
+
+  pointer-events: none;
+}
+
+.founder__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.founder__image {
+  position: relative;
+}
+
+.founder__image img {
+  width: 100%;
+  height: 650px;
+
+  object-fit: cover;
+
+  border-radius: 30px;
+
+  display: block;
+
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+
+  transition: transform 0.5s ease;
+}
+
+.founder__image:hover img {
+  transform: scale(1.03);
+}
+
+.founder__image::after {
+  content: "";
+
+  position: absolute;
+
+  top: 24px;
+  left: 24px;
+  right: -24px;
+  bottom: -24px;
+
+  border: 2px solid rgba(193, 154, 107, 0.35);
+
+  border-radius: 30px;
+
+  z-index: -1;
+}
+
+.founder__content {
+  max-width: 600px;
+}
+
+.section-tag {
+  display: inline-block;
+
+  margin-bottom: 1rem;
+
+  color: var(--gold);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.25rem;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+}
+
+.founder__content h2 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+  line-height: 1.1;
+
+  margin-bottom: 2rem;
+
+  color: var(--text-primary);
+}
+
+.founder__content p {
+  margin-bottom: 1.5rem;
+
+  font-size: 1.05rem;
+
+  line-height: 1.9;
+
+  color: var(--text-secondary);
+}
+
+.founder__content blockquote {
+  position: relative;
+
+  margin: 3rem 0;
+
+  padding-left: 1.5rem;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.8rem;
+
+  line-height: 1.6;
+
+  color: var(--text-primary);
+
+  border-left: 3px solid var(--gold);
+}
+
+.founder__content h4 {
+  margin-top: 2rem;
+
+  font-size: 1.1rem;
+
+  color: var(--gold);
+
+  letter-spacing: 0.08rem;
+}
+
+@media (max-width: 992px) {
+  .founder {
+    padding: 6rem 0;
+  }
+
+  .founder__grid {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+  .founder__image {
+    order: -1;
+  }
+
+  .founder__image img {
+    height: 520px;
+  }
+
+  .founder__content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .founder {
+    padding: 5rem 0;
+  }
+
+  .founder__image img {
+    height: 420px;
+  }
+
+  .founder__image::after {
+    display: none;
+  }
+
+  .founder__content h2 {
+    font-size: 2.5rem;
+  }
+
+  .founder__content blockquote {
+    font-size: 1.5rem;
+  }
+}

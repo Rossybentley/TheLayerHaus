@@ -1,0 +1,104 @@
+.loader {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #141210;
+
+  z-index: 99999;
+
+  overflow: hidden;
+}
+
+/* Background Glow */
+
+.loader::before {
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(176, 138, 90, 0.12),
+    transparent 70%
+  );
+
+  filter: blur(80px);
+
+  animation: glow 6s ease-in-out infinite;
+}
+
+.loader-content {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+}
+
+.loader-content h1 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(3rem, 7vw, 5rem);
+
+  color: white;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 14px;
+}
+
+.loader-content p {
+  color: rgba(255, 255, 255, 0.65);
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  font-size: 0.9rem;
+
+  margin-bottom: 50px;
+}
+
+.loader-line {
+  width: 260px;
+
+  height: 3px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  margin: auto;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+}
+
+.loader-progress {
+  height: 100%;
+
+  background: linear-gradient(90deg, #8f6a3b, #d7b56d, #8f6a3b);
+
+  border-radius: inherit;
+
+  box-shadow: 0 0 20px rgba(215, 181, 109, 0.7);
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}

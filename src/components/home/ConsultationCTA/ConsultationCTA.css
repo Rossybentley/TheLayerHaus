@@ -1,0 +1,278 @@
+.consultation {
+  padding: 120px 0;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(176, 138, 90, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(180deg, var(--background), var(--surface));
+  position: relative;
+  overflow: hidden;
+}
+.consultation-card {
+  position: relative;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  padding: 70px;
+  display: grid;
+  border-radius: 36px;
+
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  overflow: hidden;
+
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.08);
+}
+.consultation-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  padding: 1px;
+
+  border-radius: inherit;
+
+  background: linear-gradient(120deg, transparent, var(--gold) transparent);
+  background-size: 300%;
+  animation: borderFlow 7s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+@keyframes borderFlow {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 200%;
+  }
+}
+.consultation-content {
+  max-width: 760px;
+
+  position: relative;
+
+  z-index: 2;
+}
+.consultation-content h2 {
+  font-size: clamp(3rem, 5vw, 4.6rem);
+  line-height: 1.05;
+  margin-bottom: 1.9;
+}
+.consultation-eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.consultation-features {
+  display: grid;
+
+  gap: 22px;
+
+  margin-bottom: 45px;
+}
+
+.consultation-feature {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+.consultation-description {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 620px;
+}
+.consultation-feature svg {
+  color: var(--gold);
+
+  font-size: 1.5rem;
+}
+
+.consultation-feature span {
+  font-size: 1.05rem;
+}
+.consultation-note {
+  margin-bottom: 45px;
+
+  padding: 22px;
+
+  border-left: 4px solid var(--gold);
+
+  background: rgba(176, 138, 90, 0.08);
+
+  border-radius: 18px;
+
+  line-height: 1.8;
+
+  color: var(--text-primary);
+}
+.consultation-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.consultation-image {
+  position: relative;
+  height: 640px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
+}
+.consultation-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s ease;
+}
+.consultation-image:hover img {
+  transform: scale(1.08);
+}
+.consultation-image::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(176, 138, 90, 0.18);
+  filter: blur(70px);
+  top: -80px;
+  right: -80px;
+}
+.consultation-decoration {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -120px;
+  top: -120px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(176, 138, 90, 0.16),
+    transparent 70%
+  );
+
+  filter: blur(70px);
+
+  animation: floatGlow 9s ease-in-out infinite;
+}
+.consultation-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.45));
+}
+.consultation-badge {
+  position: absolute;
+  left: 35px;
+  bottom: 35px;
+  width: 320px;
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+.consultation-badge span {
+  color: #f5d7a3;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+.consultation-badge h3 {
+  margin: 14px 0;
+  font-size: 2rem;
+}
+.consultation-badge p {
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+@keyframes floatGlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(30px);
+  }
+}
+@media (max-width: 992px) {
+  .consultation-card {
+    grid-template-columns: 1fr;
+  }
+
+  .consultation-image {
+    order: -1;
+
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .consultation {
+    padding: 90px 0;
+  }
+
+  .consultation-card {
+    padding: 30px;
+
+    gap: 40px;
+  }
+
+  .consultation-image {
+    height: 380px;
+  }
+
+  .consultation-badge {
+    width: calc(100% - 40px);
+
+    left: 20px;
+
+    bottom: 20px;
+
+    padding: 20px;
+  }
+
+  .consultation-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .consultation-buttons {
+    flex-direction: column;
+  }
+
+  .consultation-buttons .button {
+    width: 100%;
+
+    justify-content: center;
+  }
+}

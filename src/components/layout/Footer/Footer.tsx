@@ -1,6 +1,6 @@
 import "./Footer.css";
-
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   FiInstagram,
   FiMapPin,
@@ -8,16 +8,18 @@ import {
   FiMail,
   FiArrowUpRight,
 } from "react-icons/fi";
-
 import Container from "../Container/Container";
-
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="footer">
+      {" "}
       <Container>
-        {/* Top Section */}
-
+        {" "}
+        {/* ================================ TOP ================================= */}
         <div className="footer-top">
+          {/* Brand */}
+
           <div className="footer-brand">
             <p className="footer-eyebrow">THE LAYER HAUS</p>
 
@@ -30,66 +32,85 @@ const Footer = () => {
 
             <div className="footer-socials">
               <motion.a
-                whileHover={{ y: -4 }}
-                href="https://instagram.com/thelayerhaus"
+                href="https://www.instagram.com/layerhaus.ng"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="Visit The Layer Haus on Instagram"
+                whileHover={{ y: -4 }}
               >
                 <FiInstagram />
               </motion.a>
-
-              {/* <motion.a whileHover={{ y: -4 }} href="#">
-                <FiFacebook />
-              </motion.a> */}
             </div>
           </div>
 
+          {/* Links */}
+
           <div className="footer-links">
-            <div>
+            {/* Explore */}
+
+            <div className="footer-column">
               <h3>Explore</h3>
 
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#services">Services</a>
-              <a href="#projects">Projects</a>
-              <a href="#gallery">Gallery</a>
+              <Link to="/">Home</Link>
+
+              <Link to="/about">About</Link>
+
+              <Link to="/services">Services</Link>
+
+              <Link to="/projects">Projects</Link>
+
+              <Link to="/gallery">Gallery</Link>
+
+              <Link to="/contact">Contact</Link>
             </div>
 
-            <div>
+            {/* Services */}
+
+            <div className="footer-column">
               <h3>Services</h3>
 
-              <a href="#">Luxury Curtains</a>
-              <a href="#">Window Blinds</a>
-              <a href="#">Interior Styling</a>
-              <a href="#">Installation</a>
+              <Link to="/services">Luxury Curtains</Link>
+
+              <Link to="/services">Luxury Blinds</Link>
+
+              <Link to="/services">Premium Wallpapers</Link>
+
+              <Link to="/services">Interior Styling</Link>
             </div>
 
-            <div>
+            {/* Contact */}
+
+            <div className="footer-column">
               <h3>Contact</h3>
 
-              <div className="footer-contact">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Yaba%2C%20Lagos%2C%20Nigeria"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact"
+              >
                 <FiMapPin />
 
-                <span>Yaba, Lagos State</span>
-              </div>
+                <span>Yaba, Lagos</span>
+              </a>
 
-              <div className="footer-contact">
+              <a href="tel:+2347010353293" className="footer-contact">
                 <FiPhone />
 
                 <span>+234 701 035 3293</span>
-              </div>
+              </a>
 
-              <div className="footer-contact">
+              <a href="mailto:layerhaus24@gmail.com" className="footer-contact">
                 <FiMail />
 
                 <span>Layerhaus24@gmail.com</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
-
-        {/* Newsletter */}
-
+        {/* ================================
+        NEWSLETTER
+    ================================= */}
         <div className="footer-newsletter">
           <div>
             <h3>Stay Inspired</h3>
@@ -99,28 +120,33 @@ const Footer = () => {
             </p>
           </div>
 
-          <form className="newsletter-form">
-            <input type="email" placeholder="Enter your email" />
+          <form
+            className="newsletter-form"
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              aria-label="Email address"
+              required
+            />
 
             <button type="submit">
-              Subscribe
+              <span>Subscribe</span>
+
               <FiArrowUpRight />
             </button>
           </form>
         </div>
-
-        {/* Bottom */}
-
+        {/* ================================
+        BOTTOM
+    ================================= */}
         <div className="footer-bottom">
-          <p>
-            © {new Date().getFullYear()} The Layer Haus. All rights reserved.
-          </p>
-
+          <p>© {currentYear} The Layer Haus. All rights reserved.</p>
           <span>Crafted with elegance.</span>
         </div>
       </Container>
     </footer>
   );
 };
-
 export default Footer;

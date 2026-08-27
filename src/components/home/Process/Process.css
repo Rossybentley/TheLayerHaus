@@ -1,0 +1,430 @@
+.process {
+  padding: 120px 0;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+.process-pattern {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.03;
+
+  background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+
+  background-size: 30px 30px;
+
+  pointer-events: none;
+}
+.timeline-item:nth-child(2) .timeline-card {
+  animation: float1 7s ease-in-out infinite;
+}
+
+.timeline-item:nth-child(3) .timeline-card {
+  animation: float2 8s ease-in-out infinite;
+}
+
+.timeline-item:nth-child(4) .timeline-card {
+  animation: float3 6.5s ease-in-out infinite;
+}
+
+.timeline-item:nth-child(5) .timeline-card {
+  animation: float4 7.8s ease-in-out infinite;
+}
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float4 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.process-grid {
+  margin-top: 70px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 30px;
+}
+
+.process-card {
+  position: relative;
+
+  padding: 40px 30px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  text-align: center;
+
+  transition: 0.4s;
+}
+
+.process-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+}
+
+.process-card__number {
+  position: absolute;
+
+  top: 25px;
+  right: 25px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  color: var(--gold);
+}
+
+.process-card__icon {
+  width: 80px;
+  height: 80px;
+
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(176, 138, 90, 0.12);
+
+  color: var(--gold);
+
+  font-size: 2rem;
+
+  margin-bottom: 24px;
+
+  transition: 0.35s;
+}
+
+.process-card:hover .process-card__icon {
+  transform: rotate(8deg) scale(1.08);
+}
+
+.process-card h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.8rem;
+
+  margin-bottom: 16px;
+}
+
+.process-card p {
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}
+.timeline {
+  position: relative;
+
+  width: min(1100px, 100%);
+
+  margin: 90px auto 0;
+}
+
+.timeline-line {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 3px;
+
+  background: linear-gradient(to bottom, var(--gold-light), var(--gold));
+
+  border-radius: 999px;
+}
+.timeline-item {
+  position: relative;
+
+  width: 50%;
+
+  padding: 40px;
+}
+.timeline-item.left {
+  padding-right: 70px;
+}
+.timeline-item.right {
+  margin-left: 50%;
+
+  padding-left: 70px;
+}
+.timeline-card {
+  padding: 40px;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.45s ease;
+}
+.timeline-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+.timeline-dot {
+  position: absolute;
+
+  top: 70px;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow: 0 0 0 8px rgba(176, 138, 90, 0.12);
+}
+.timeline-item.left .timeline-dot {
+  right: -9px;
+}
+.timeline-item.right .timeline-dot {
+  left: -9px;
+}
+.timeline-card {
+  animation: floatCard 5s ease-in-out infinite;
+}
+.timeline-number {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.timeline-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(176, 138, 90, 0.12);
+  color: var(--gold);
+  font-size: 1.7rem;
+  transition: 0.35s;
+}
+
+.timeline-item:hover .timeline-icon {
+  transform: rotate(8deg) scale(1.08);
+}
+
+@keyframes floatCard {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+@media (max-width: 992px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .process {
+    padding: 90px 0;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 25px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    padding-left: 70px;
+  }
+
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 16px;
+    right: auto;
+  }
+
+  /* fix: connector was still positioned for the two-column layout,
+     so it floated disconnected from the dot once everything
+     collapsed into a single column */
+  .timeline-item.left .timeline-connector,
+  .timeline-item.right .timeline-connector {
+    left: 16px;
+    right: auto;
+    width: 46px;
+  }
+}
+
+/* tighter breakpoint for phones — 900px alone leaves padding, the
+   dot, and the connector sized for tablets all the way down to
+   320px screens */
+@media (max-width: 480px) {
+  .timeline {
+    margin-top: 50px;
+  }
+  .timeline-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+  }
+  .timeline-item.left,
+  .timeline-item.right {
+    padding: 20px 16px 20px 52px;
+  }
+
+  .timeline-line {
+    left: 19px;
+  }
+
+  .timeline-dot {
+    width: 14px;
+    height: 14px;
+    top: 28px;
+  }
+
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 12px;
+  }
+
+  .timeline-item.left .timeline-connector,
+  .timeline-item.right .timeline-connector {
+    left: 12px;
+    top: 34px;
+    width: 32px;
+  }
+
+  .timeline-card {
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+
+  /* :hover fires on tap on touch devices — the scale-up reads as a
+     stuck/glitchy tap state, so it's turned off below 480px */
+  .timeline-card:hover {
+    transform: none;
+  }
+}
+
+/* floating cards side-by-side reads as delight; the same motion
+   stacked in a single column on mobile reads as jitter, so it's
+   turned off (and respects reduced-motion regardless of width) */
+@media (max-width: 600px), (prefers-reduced-motion: reduce) {
+  .timeline-card,
+  .timeline-item:nth-child(2) .timeline-card,
+  .timeline-item:nth-child(3) .timeline-card,
+  .timeline-item:nth-child(4) .timeline-card,
+  .timeline-item:nth-child(5) .timeline-card {
+    animation: none;
+  }
+}
+.timeline-connector {
+  position: absolute;
+
+  top: 78px;
+
+  width: 60px;
+  height: 2px;
+
+  background: linear-gradient(to right, var(--gold), rgba(176, 138, 90, 0.2));
+}
+.timeline-item.left .timeline-connector {
+  right: 0;
+}
+.timeline-item.right .timeline-connector {
+  left: 0;
+}
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.25);
+
+  box-shadow:
+    0 0 0 12px rgba(176, 138, 90, 0.2),
+    0 0 35px rgba(176, 138, 90, 0.7);
+
+  transition: 0.35s;
+}
+.timeline-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top right,
+    rgba(176, 138, 90, 0.18),
+    transparent 65%
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.45s ease;
+}
+
+.timeline-card:hover::before {
+  opacity: 1;
+}

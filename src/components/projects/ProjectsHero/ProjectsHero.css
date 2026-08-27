@@ -1,0 +1,143 @@
+.projects-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 750px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.projects-hero__image {
+  position: absolute;
+  inset: 0;
+}
+
+.projects-hero__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1.05);
+}
+
+.projects-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(15, 15, 15, 0.82) 0%,
+    rgba(15, 15, 15, 0.55) 45%,
+    rgba(15, 15, 15, 0.3) 100%
+  );
+}
+
+.projects-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.projects-hero__content {
+  max-width: 680px;
+  color: white;
+}
+
+.projects-hero__content .section-tag {
+  display: inline-block;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--gold);
+
+  letter-spacing: 0.3rem;
+
+  text-transform: uppercase;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+}
+
+.projects-hero__content h1 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(4rem, 7vw, 6.5rem);
+
+  line-height: 1.05;
+
+  margin-bottom: 2rem;
+}
+
+.projects-hero__content p {
+  max-width: 580px;
+
+  font-size: 1.1rem;
+
+  line-height: 2;
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.projects-hero__content::after {
+  content: "";
+
+  display: block;
+
+  width: 110px;
+  height: 3px;
+
+  margin-top: 2rem;
+
+  background: var(--gold);
+
+  border-radius: 999px;
+}
+
+@media (max-width: 992px) {
+  .projects-hero {
+    min-height: 680px;
+    height: 85vh;
+  }
+
+  .projects-hero__content h1 {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-hero {
+    height: 75vh;
+    min-height: 600px;
+  }
+
+  .projects-hero__content {
+    text-align: center;
+    margin: auto;
+  }
+
+  .projects-hero__content p {
+    margin: auto;
+  }
+
+  .projects-hero__content::after {
+    margin: 2rem auto 0;
+  }
+
+  .projects-hero__content h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-hero__content h1 {
+    font-size: 2.8rem;
+  }
+
+  .projects-hero__content p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}

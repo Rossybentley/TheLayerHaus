@@ -1,19 +1,24 @@
 import "./Hero.css";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import { fadeLeft } from "../../../utils/animation";
 
 import Container from "../../layout/Container/Container";
 import Section from "../../layout/Section/Section";
 import Button from "../../ui/Button/Button";
-import { Link } from "react-router-dom";
 import heroImage from "../../../assets/images/hero/hero-main.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <Section id="home" className="hero">
       <div className="hero__background">
-        <img src={heroImage} alt="Luxury Curtains" />
+        <img
+          src={heroImage}
+          alt="Luxury interior featuring bespoke curtains by The Layer Haus"
+        />
       </div>
 
       <Container>
@@ -37,13 +42,13 @@ const Hero = () => {
           </p>
 
           <div className="hero__buttons">
-            <Link to="/contact" className="button button--primary">
+            <Button onClick={() => navigate("/contact")}>
               Book Consultation
-            </Link>
+            </Button>
 
-            <Link to="/projects" className="button button--secondary">
+            <Button variant="secondary" onClick={() => navigate("/projects")}>
               View Projects
-            </Link>
+            </Button>
           </div>
         </motion.div>
       </Container>

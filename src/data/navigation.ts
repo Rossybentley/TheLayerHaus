@@ -1,4 +1,4 @@
-export const navigationLinks = [
+export const navigation = [
   {
     label: "Home",
     path: "/",
